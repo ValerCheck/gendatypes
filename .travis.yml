@@ -9,6 +9,7 @@ r:
 r_packages:
   - covr
   - testthat
+  - usethis
 
 after_success:
   - Rscript -e 'covr::codecov()'
