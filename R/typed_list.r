@@ -16,17 +16,10 @@ as.typed_list <- function(x, type_class) {
   if (any(sapply(x, function(x) !rlang::is_named(x))))
     stop("Only named items must be provided in the list")
 
-  if (all(sapply(x, function(x) is(x, type_class))))
-  {
-    structure(x %>% with_class(class_names.typed_list), type = type_class)
-  }
-  else
-  {
-    if (!is(x, type_class))
-      stop("All items in collection must be of type: ", type_class)
+  if (!all(sapply(x, function(x) is(x, type_class))))
+    stop("All items in collection must be of type: ", type_class)
 
-    structure(list(x) %>% with_class(class_names.typed_list), type = type_class)
-  }
+  structure(x %>% with_class(class_names.typed_list), type = type_class)
 }
 
 is_typed_list <- function(x) {
