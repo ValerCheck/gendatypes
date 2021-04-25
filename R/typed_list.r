@@ -8,6 +8,8 @@ class_names.typed_list <- "typed_list"
 as.typed_list <- function(x, type_class) {
   stopifnot(!is.atomic(x))
 
+  if (missing(type_class)) type_class <- class(x[[1]])[1]
+
   if (any(sapply(x, is.atomic)))
     stop("Only recursive items (i.e. list) are allowed for creating typed collection!")
 
