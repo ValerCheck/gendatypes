@@ -1,11 +1,11 @@
 Package: gendatypes
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Generic data types and utilities for R
+Version: 0.0.0.0001
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Valerii",
+           family = "Kolesnik",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
+           email = "mypowerismind@gmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
@@ -15,4 +15,10 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1.9000
 Suggests: 
     testthat (>= 3.0.0)
+Imports:
+    magrittr,
+    dplyr,
+    purrr,
+    rlang,
+    methods
 Config/testthat/edition: 3
