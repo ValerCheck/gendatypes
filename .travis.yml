@@ -1,6 +1,6 @@
 language: r
 cache: packages
-r_check_args: ""
+r_check_args: --no-manual
 
 r:
   - oldrel
