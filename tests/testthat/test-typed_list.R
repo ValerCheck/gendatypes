@@ -23,7 +23,7 @@ test_that("when pass list with one named list item expect successful coersion to
   tlist <- as.typed_list(list(list(a = 1, b = 2, c = 3)))
   expect_s3_class(tlist, "typed_list")
   expect_true(is_typed_list(tlist))
-  expect_true(typed_list.of_type(tlist, "list"))
+  expect_true(typed_list.is(tlist, "list"))
 })
 
 test_that("when pass list with multiple items with different classes expect coersion to typed_list fails", {

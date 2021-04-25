@@ -26,7 +26,15 @@ is_typed_list <- function(x) {
   is(x, class_names.typed_list)
 }
 
-typed_list.of_type <- function(x, type_class) {
+typed_list.typeof <- function(x) {
+  attr(validate_typed_list_class(x), "type")
+}
+
+typed_list.is <- function(x, type_class) {
+  attr(validate_typed_list_class(x), "type") == type_class
+}
+
+validate_typed_list_class <- function(x) {
   stopifnot(is_typed_list(x))
-  attr(x, "type") == type_class
+  invisible(x)
 }
