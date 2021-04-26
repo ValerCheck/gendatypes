@@ -3,9 +3,7 @@ cache: packages
 r_check_args: --no-manual
 
 r:
-  - oldrel
   - release
-  - devel
 
 r_packages:
   - covr
@@ -14,6 +12,14 @@ r_packages:
 
 after_success:
   - Rscript -e 'covr::codecov()'
+
+deploy:
+  provider: releases
+  api_key: $GITHUB_TOKEN
+  file: *.tar.gz
+  skip_cleanup: true
+  on:
+    tags: true
 
 
 
