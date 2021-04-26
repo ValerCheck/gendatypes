@@ -13,11 +13,15 @@ r_packages:
 after_success:
   - Rscript -e 'covr::codecov()'
 
+before_deploy:
+  - export RELEASE_PKG_FILE=$(ls *.tar.gz)
+  - echo "deploying $RELEASE_PKG_FILE to GitHub releases"
+
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
   file_glob: true
-  file: *.tar.gz
+  file: "${RELEASE_PKG_FILE}"
   skip_cleanup: true
   on:
     tags: true
