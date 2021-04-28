@@ -1,9 +1,3 @@
-usethis::use_package("dplyr")
-usethis::use_package("purrr")
-usethis::use_package("magrittr")
-usethis::use_package("methods")
-usethis::use_package("rlang")
-
 #' Extend class of object
 #'
 #' @param obj object under test
