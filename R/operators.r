@@ -11,9 +11,8 @@
 
 #' @export
 `%??%.default` <- function(lhs, rhs) {
-  defaultIf(function(x) is.na(x) || is.null(x) || is.nan(x), lhs, rhs)
+  defaultIf(isValueMissing, lhs, rhs)
 }
-
 
 #' Default-if function
 #'
@@ -26,4 +25,23 @@ defaultIf <- function(.predicate, .value, .default)
 {
   if (.predicate(.value)) .default
   else .value
+}
+
+isValueMissing <- function(value)
+{
+  isEmpty <- rlang::is_empty(value)
+  isAtomic <- rlang::is_atomic(value)
+
+  if (isAtomic && isEmpty)
+  {
+    return (TRUE)
+  }
+
+  if (is(value, "numeric"))
+    return (is.nan(value))
+
+  if (is(value, "logical"))
+    return (is.na(value))
+
+  return (is.null(value))
 }
