@@ -37,11 +37,12 @@ jobs:
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: |
-            any::usethis
             any::testthat
             any::covr
             any::rcmdcheck
-          needs: check
+          needs: |
+            check
+            usethis
         
       - name: Check R package
         uses: r-lib/actions/check-r-package@v2
