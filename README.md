@@ -11,7 +11,7 @@ The goal of gendatypes is to provide generic data structures and utilities for r
 
 To be added...
 
-## Example
+## Functions
 
 Current version contains next functions:
 
