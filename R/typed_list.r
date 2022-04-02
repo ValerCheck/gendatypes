@@ -1,6 +1,3 @@
-usethis::use_package("magrittr")
-usethis::use_package("methods")
-
 class_names.typed_list <- "typed_list"
 
 #' Typed list
