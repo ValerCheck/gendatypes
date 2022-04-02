@@ -36,7 +36,7 @@ jobs:
       - name: Install dependencies
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra_packages: |
+          extra-packages: |
             usethis
             testthat
             covr
