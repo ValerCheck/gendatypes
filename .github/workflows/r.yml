@@ -10,9 +10,8 @@ name: R-CMD-Check
 
 on:
   push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+    tags:
+      - "**"
 
 permissions:
   contents: read
@@ -48,3 +47,10 @@ jobs:
         uses: r-lib/actions/check-r-package@v2
         with: 
           upload-snapshots: true
+          
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.0.0
+        with:
+          name: "gendatypes-package"
+          path: "*.tar.gz"
+      
