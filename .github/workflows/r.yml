@@ -37,9 +37,9 @@ jobs:
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: |
-            usethis
-            testthat
-            covr
+            any::usethis
+            any::testthat
+            any::covr
         
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
