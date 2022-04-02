@@ -41,7 +41,7 @@ jobs:
             any::testthat
             any::covr
             any::rcmdcheck
-              needs: check
+          needs: check
         
       - name: Check R package
         uses: r-lib/actions/check-r-package@v2
