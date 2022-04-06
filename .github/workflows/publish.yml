@@ -6,16 +6,17 @@
 # See https://github.com/r-lib/actions/tree/master/examples#readme for
 # additional example workflows available for the R community.
 
-name: R-CMD-Check
+name: publish
 
 on:
   push:
     tags:
-      - "**"
+      - "v*"
   workflow_dispatch:
-
-permissions:
-  contents: read
+    inputs:
+      version:
+        required: true
+        type: string
 
 jobs:
   build:
@@ -48,8 +49,12 @@ jobs:
         uses: r-lib/actions/check-r-package@v2
         with: 
           upload-snapshots: true
-          
-      - name: Upload a Build Artifact
+      
+      - name: Display content
+        run: ls -R
+        shell: bash
+
+      - name: Upload artifacts
         uses: actions/upload-artifact@v3.0.0
         with:
           name: "gendatypes-package"
