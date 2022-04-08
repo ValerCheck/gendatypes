@@ -54,9 +54,17 @@ jobs:
         run: ls -R
         shell: bash
 
-      - name: Upload artifacts
+      - name: Upload artifacts from manual run
+        if: ${{ github.event_name == "workflow_dispatch" }}
         uses: actions/upload-artifact@v3.0.0
         with:
-          name: "gendatypes-package"
-          path: "*.tar.gz"
+          name: gendatypes-${{inputs.version}}
+          path: ./check/*.tar.gz
+
+      - name: Upload artifacts from triggered run
+        if: ${{ github.event_name == "push"}}
+        uses: actions/upload-artifact@v3.0.0
+        with:
+          name: gendatypes-${{github.ref_name}}
+          path: ./check/*.tar.gz
       
