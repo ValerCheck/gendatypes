@@ -10,7 +10,15 @@ The goal of gendatypes is to provide generic data structures and utilities for r
 
 ## Installation
 
-To be added...
+Currently the package is not deployed to CRAN. For installation use `install_github` command from `devtools` package.
+```lang-r
+devtools::install_github("valercheck/gendatypes")
+```
+
+To install specific version use `ref` option and provide branch or tag name. Release tags use 4 numbers in version with `v` prefix.
+```lang-r
+devtools::install_github("valercheck/gendatypes", ref = "v0.0.0.2")
+```
 
 ## Functions
 

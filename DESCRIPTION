@@ -6,8 +6,8 @@ Authors@R:
            family = "Kolesnik",
            role = c("aut", "cre"),
            email = "mypowerismind@gmail.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           comment = c(ORCID = "0000-0001-9179-1335"))
+Description: Provides typed_list object and some helper functions and operators.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
