@@ -1,3 +1,18 @@
+#' Extract parts of the typed_list object and convert them to typed_list for further extraction
+#'
+#' @param lhs Input object
+#' @param rhs Part of the object
+#'
+#' @return list of parts of input colleciton of objects
+#' @export
+`%$%` <- function(lhs, rhs)
+{
+  if (!is_typed_list(lhs))
+    stop(paste("`$$` operator is applicable only for typed_list objects, but provided object was of type", typeof(lhs), "and class", class(lhs), sep = " "))
+  parameter <- as.character(substitute(rhs))
+  lapply(lhs, `[[`, parameter) %>% as.typed_list()
+}
+
 #' Double-question S3 generic operator
 #'
 #' @param lhs left argument

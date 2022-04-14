@@ -37,6 +37,7 @@ Current version contains next functions:
 |**typed_list.is**|**x**: input object <br> **type_class**: type class to verify|Returns either `TRUE` or `FALSE` based on comparison of generic item type with provided **type_class**|
 |**validate_typed_list_class**|**x**: input object|Same as **is_typed_list** except it will stop execution with error if outcome of **is_typed_list** is `FALSE`|
 |**`$.typed_list`**|**x**: input object <br> **name**: property name|S3 method for `$` function for `typed_list`. Returns a collection of properties by property name from each typed_list item|
+|**`%$%`**|**lhs**: input object. Must have class `typed_list`. <br> **rhs**: property name on which perform expansion|Operator which works like **`$.typed_list`** except the result from this operator will give also typed list but not a vector of items or matrix|
 
 
 
