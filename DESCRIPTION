@@ -1,6 +1,6 @@
 Package: gendatypes
 Title: Generic data types and utilities for R
-Version: 0.0.0.6
+Version: 0.0.0.7
 Authors@R: 
     person(given = "Valerii",
            family = "Kolesnik",
