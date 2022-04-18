@@ -16,5 +16,10 @@ Write-Host $currentVersionString
 $newVersionString = &{if ($autoIncrement -eq $true) {Get-AutoIncrementedVersion -CurrentVersionString $currentVersionString} else {$version} }
 ((Get-Content -Path "DESCRIPTION" -Raw) -replace $currentVersionString, $newVersionString) | Set-Content -Path "DESCRIPTION"
 
+$newVersion = ("v{0}" -f ($newVersionString | Select-String -Pattern "\d.+").Matches.Value)
+
 git add .
-git commit -m ("Update version: {0}" -f $newVersionString)
+git commit -m ("Update version: {0}" -f $newVersion)
+git tag $newVersion
+git push
+git push --tags
