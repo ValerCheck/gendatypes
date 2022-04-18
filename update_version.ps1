@@ -11,8 +11,10 @@ Function Get-AutoIncrementedVersion {
     "Version: {0}" -f $newVersionString
 }
 
+$env:GIT_REDIRECT_STDERR = '2>&1'
+
 $currentVersionString = @(cat "DESCRIPTION") -match "Version"
-Write-Host $currentVersionString
+
 $newVersionString = &{if ($autoIncrement -eq $true) {Get-AutoIncrementedVersion -CurrentVersionString $currentVersionString} else {$version} }
 ((Get-Content -Path "DESCRIPTION" -Raw) -replace $currentVersionString, $newVersionString) | Set-Content -Path "DESCRIPTION" -NoNewline
 
@@ -21,5 +23,5 @@ $newVersion = ("v{0}" -f ($newVersionString | Select-String -Pattern "\d.+").Mat
 git add .
 git commit -m ("Update version: {0}" -f $newVersion)
 git tag $newVersion
-git push --quiet
-git push --tags --quiet
+git push
+git push --tags
