@@ -1,6 +1,6 @@
 Package: gendatypes
 Title: Generic data types and utilities for R
-Version: 0.0.0.8
+Version: 0.0.0.9
 Authors@R: 
     person(given = "Valerii",
            family = "Kolesnik",
@@ -23,3 +23,4 @@ Imports:
     methods
 Config/testthat/edition: 3
 URL: https://valercheck.github.io/gendatypes/
+
