@@ -5,7 +5,7 @@
 #'
 #' @return list of parts of input colleciton of objects
 #' @export
-`%$%` <- function(lhs, rhs)
+`%$$%` <- function(lhs, rhs)
 {
   if (!is_typed_list(lhs))
     stop(paste("`$$` operator is applicable only for typed_list objects, but provided object was of type", typeof(lhs), "and class", class(lhs), sep = " "))

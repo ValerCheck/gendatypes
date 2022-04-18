@@ -2,7 +2,7 @@
 
 S3method("$",typed_list)
 S3method("%??%",default)
-export("%$%")
+export("%$$%")
 export("%??%")
 export(as.typed_list)
 export(c_extended)
