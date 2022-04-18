@@ -14,7 +14,7 @@ Function Get-AutoIncrementedVersion {
 $currentVersionString = @(cat "DESCRIPTION") -match "Version"
 Write-Host $currentVersionString
 $newVersionString = &{if ($autoIncrement -eq $true) {Get-AutoIncrementedVersion -CurrentVersionString $currentVersionString} else {$version} }
-((Get-Content -Path "DESCRIPTION" -Raw) -replace $currentVersionString, $newVersionString) | Set-Content -Path "DESCRIPTION"
+((Get-Content -Path "DESCRIPTION" -Raw) -replace $currentVersionString, $newVersionString) | Set-Content -Path "DESCRIPTION" -NoNewline
 
 $newVersion = ("v{0}" -f ($newVersionString | Select-String -Pattern "\d.+").Matches.Value)
 
